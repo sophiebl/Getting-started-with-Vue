@@ -32,28 +32,6 @@
         </v-col>
       </v-row>
     </v-container>
-
-    <VAlert text type="error">
-      TODO: MAJOR – this should be presentend as a grid<br />
-      • 3 columns max<br />
-      • 1 column on small devices <br />
-      • DO NOT USE
-      <a
-        href="https://vuetifyjs.com/en/components/grids/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Vuetify's grid components
-      </a>
-      <br />
-      Remove the <code>VAlert</code> when it's done
-    </VAlert>
-    <VAlert text type="error" class="mt-6">
-      TODO: MAJOR – when clicking on “see more” we see an error layout<br />
-      This shouldn't be the case
-      <br />
-      Remove the <code>VAlert</code> when it's done
-    </VAlert>
   </div>
 </template>
 
