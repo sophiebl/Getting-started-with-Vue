@@ -10,21 +10,9 @@
         class="white--text"
         gradient="to top, rgba(0,0,0,.1), rgba(0,0,0,.5)"
       >
-        <VCardTitle class="text-h3">{{ company.name }}</VCardTitle>
-        <VAlert type="info" class="mx-4 d-inline-block">
-          TODO: MINOR – display the mean rating
-          <br />
-          <a
-            href="https://vuetifyjs.com/en/components/ratings/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="white--text"
-          >
-            Use the Vuetify Rating component
-          </a>
-          <br />
-          Remove the <code>VAlert</code> when it's done
-        </VAlert>
+        <VCardTitle class="text-h3"
+          >{{ company.name }} - {{ averageRating }}</VCardTitle
+        >
       </VImg>
       <VCardText>
         <div class="page-company__contact-info">
@@ -102,7 +90,21 @@ export default {
     }
   },
   computed: {
-    // TODO: we should be able to have the mean of all ratings
+    averageRating() {
+      if (
+        !Object.keys(this.company).includes('reviews') ||
+        !Array.isArray(this.reviews) ||
+        this.reviews.length === 0
+      ) {
+        return
+      }
+      const average =
+        this.reviews.reduce((a, b) => {
+          return a + b.rating
+        }, 0) / this.reviews.length
+
+      return average.toFixed(2)
+    },
   },
 }
 </script>
