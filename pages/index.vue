@@ -56,7 +56,6 @@ export default {
       console.log('companies', companies)
       this.companies = companies
     } catch (error) {
-      console.log('err', error)
       this.$nuxt.error(error)
     }
   },
