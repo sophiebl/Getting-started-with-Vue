@@ -1,6 +1,14 @@
 <template>
   <VCard class="va-company-review" tag="li">
-    <VCardText> I'm an unfinished review item component </VCardText>
+    <VCardText>{{ review.text }}</VCardText>
+    <v-rating
+      v-model="rating"
+      background-color="grey lighten-2"
+      color="yellow darken-3"
+      half-increments
+      hover
+      readonly
+    ></v-rating>
   </VCard>
 </template>
 

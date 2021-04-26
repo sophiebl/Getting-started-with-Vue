@@ -50,25 +50,26 @@
         <br />
         Remove the <code>VAlert</code> when it's done
       </VAlert>
-      <VAlert text type="error">
-        TODO: MAJOR – implement the reviews<br />
-        <a
-          href="https://vuetifyjs.com/en/components/ratings/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Use the Vuetify Rating component
-        </a>
-        <br />
-        Remove the <code>VAlert</code> when it's done
-      </VAlert>
       <ul class="pa-0">
         <VSkeletonLoader
           v-if="$fetchState.pending"
           type="article"
           elevation="2"
         />
-        <VaCompanyReview v-else />
+
+        <v-container v-else>
+          <v-row no-gutters>
+            <v-col
+              v-for="review in reviews"
+              v-bind:review="review"
+              v-bind:key="review.id"
+              sm="12"
+              class="pa-2"
+            >
+              <VaCompanyReview :review="review" />
+            </v-col>
+          </v-row>
+        </v-container>
       </ul>
     </aside>
   </div>
@@ -87,6 +88,7 @@ export default {
     return {
       company: {},
       currentSlide: 0,
+      reviews: [],
     }
   },
   async fetch() {
@@ -94,6 +96,7 @@ export default {
       const { params } = this.$route
       const company = await this.$axios.$get(`/companies/${params.id}`)
       this.company = company
+      this.reviews = company.reviews
     } catch (error) {
       this.$nuxt.error(error)
     }
