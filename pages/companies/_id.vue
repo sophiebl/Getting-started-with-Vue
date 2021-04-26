@@ -20,13 +20,7 @@
           <div>
             <PhPhone size="24" />
             <p class="text-body-1">
-              {{ company.phone }}
-              <VAlert text>
-                ↑ TODO: PATCH – we would like to display the formatted phone<br />
-                There is a very simple solution to that the Backend dev said
-                <br />
-                Remove the <code>VAlert</code> when it's done
-              </VAlert>
+              {{ company.phone | formatPhoneNumber }}
             </p>
           </div>
         </div>
@@ -105,6 +99,13 @@ export default {
 
       return average.toFixed(2)
     },
+  },
+  filters: {
+    formatPhoneNumber: (nb) => `
+        ${nb.substr(0, 3)} ${nb.substr(3, 2)} ${nb.substr(5, 2)} ${nb.substr(
+      7,
+      2,
+    )} ${nb.substr(9, 2)} ${nb.substr(11, 2)}`,
   },
 }
 </script>
