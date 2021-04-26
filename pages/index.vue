@@ -22,13 +22,14 @@
 
     <v-container class="grey lighten-5">
       <v-row no-gutters>
-        <v-col v-for="n in 3" :key="n" sm="12" md="4" class="pa-2">
-          <VaCompanyCard
-            v-for="company of companies"
-            :key="company.id"
-            :company="company"
-            class="mb-6"
-          />
+        <v-col
+          v-for="company of companies"
+          :key="company.id"
+          sm="12"
+          md="4"
+          class="pa-2"
+        >
+          <VaCompanyCard :company="company" class="mb-6" />
         </v-col>
       </v-row>
     </v-container>
