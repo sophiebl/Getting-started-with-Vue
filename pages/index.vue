@@ -73,17 +73,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-@import '~vuetify/src/styles/styles.sass';
-
-// TODO: MAJOR – this should be presentend as a grid
-// 3 rows max
-// 1 row on small devices
-
-// NOTE: you  can use Vuetify breakpoints to handle the ≠ layouts
-// • https://vuetifyjs.com/en/features/breakpoints/
-// @media #{map-get($display-breakpoints, 'lg-and-up')} {
-//   do stuff…
-// }
-</style>
