@@ -2,12 +2,6 @@
   <div>
     <VCard class="mb-4">
       <VSystemBar />
-      <VAlert text type="success">
-        TODO: BONUS - this is a bonus! (do that at the very end if you're
-        willing to)<br />
-        Implement the rating filter <br />
-        Remove the <code>VAlert</code> when it's done
-      </VAlert>
       <VBanner single-line>
         Filter the restaurants by ratings
         <template #actions>
