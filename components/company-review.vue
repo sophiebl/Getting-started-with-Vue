@@ -2,7 +2,7 @@
   <VCard class="va-company-review" tag="li">
     <VCardText>{{ review.text }}</VCardText>
     <v-rating
-      v-model="rating"
+      v-model="review.rating"
       background-color="grey lighten-2"
       color="yellow darken-3"
       half-increments
