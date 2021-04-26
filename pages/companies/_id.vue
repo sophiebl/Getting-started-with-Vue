@@ -1,7 +1,7 @@
 <template>
   <div class="page-company">
     <VSkeletonLoader v-if="$fetchState.pending" type="card" />
-    <VCard v-else>
+    <VCard v-else class="company-info">
       <VImg
         v-for="photo in company.photos"
         :key="photo"
@@ -27,11 +27,6 @@
       </VCardText>
     </VCard>
     <aside>
-      <VAlert text>
-        TODO: PATCH – this should go under the company card on small device
-        <br />
-        Remove the <code>VAlert</code> when it's done
-      </VAlert>
       <ul class="pa-0">
         <VSkeletonLoader
           v-if="$fetchState.pending"
@@ -45,7 +40,6 @@
               v-for="review in reviews"
               v-bind:review="review"
               v-bind:key="review.id"
-              sm="12"
               class="pa-2"
             >
               <VaCompanyReview :review="review" />
@@ -112,9 +106,31 @@ export default {
 
 <style lang="scss" scoped>
 .page-company {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 16rem;
-  grid-gap: var(--gutter);
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+}
+
+.page-company > .company-info {
+  -ms-flex: 70%;
+  flex: 70%;
+  max-width: 70%;
+}
+
+.page-company > aside {
+  -ms-flex: 30%;
+  flex: 30%;
+  max-width: 30%;
+}
+
+@media screen and (max-width: 800px) {
+  .page-company > .company-info,
+  .page-company > aside {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
 }
 .page-company__contact-info {
   display: grid;
