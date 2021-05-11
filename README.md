@@ -1,4 +1,4 @@
-# europages-coding-challenge
+# Exercise
 
 ## Summary
 
